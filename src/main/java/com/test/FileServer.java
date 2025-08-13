@@ -8,14 +8,16 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class FileServer {
-    public static void main(String[] args) throws IOException, InterruptedException {
+        private final static Logger logger = Logger.getLogger(FileServer.class.getName());
+        public static void main(String[] args) throws IOException, InterruptedException {
         Server server = ServerBuilder.forPort(50051)
                 .addService(new JsonServiceImpl())
                 .build();
 
-        System.out.println("Starting JSON gRPC Server on port 50051...");
+        logger.info("Starting JSON gRPC Server on port 50051...");
         server.start();
         server.awaitTermination();
     }
@@ -28,7 +30,7 @@ public class FileServer {
             // Convert bytes to string (for demo, you can save or process as needed)
             String jsonString = new String(jsonBytes);
 
-            System.out.println("Received JSON content:\n" + jsonString);
+            logger.info("Received JSON content:\n" + jsonString);
 
             JsonFileResponse response = JsonFileResponse.newBuilder()
                     .setStatus("JSON received successfully, size: " + jsonBytes.length + " bytes")

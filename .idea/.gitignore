@@ -7,13 +7,11 @@
 /target/
 
 # IntelliJ IDEA project files
-/.idea/
+.idea/
 *.iml
 *.iws
 
 
-# VS Code project files (if used)
-.vscode/
 
 # Logs
 *.log

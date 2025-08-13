@@ -9,9 +9,10 @@ import io.grpc.stub.StreamObserver;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class ClientForMultiResponse {
-
+    private static final Logger logger = Logger.getLogger(ClientForMultiResponse.class.getName());
     public static void main(String[] args) throws InterruptedException {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051)
                 .usePlaintext()
@@ -29,18 +30,18 @@ public class ClientForMultiResponse {
         asyncStub.sayHelloManyTimes(request, new StreamObserver<HelloReply>() {
             @Override
             public void onNext(HelloReply value) {
-                System.out.println("Received: " + value.getMessage());
+                logger.info("Received: " + value.getMessage());
             }
 
             @Override
             public void onError(Throwable t) {
-                t.printStackTrace();
+                logger.severe("Error from server: " + t.getMessage());
                 latch.countDown();
             }
 
             @Override
             public void onCompleted() {
-                System.out.println("Stream completed");
+                logger.info("Stream completed");
                 latch.countDown();
             }
         });

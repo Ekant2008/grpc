@@ -8,14 +8,16 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class HelloWorldServer {
+    private final static Logger logger = Logger.getLogger(HelloWorldServer.class.getName());
     public static void main(String[] args) throws IOException, InterruptedException {
         Server server = ServerBuilder.forPort(50051)
                 .addService(new GreeterImpl())
                 .build();
 
-        System.out.println("Starting gRPC Server on port 50051...");
+        logger.info("Starting gRPC Server on port 50051...");
         server.start();
         server.awaitTermination();
     }

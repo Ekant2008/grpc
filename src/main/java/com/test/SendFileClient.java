@@ -8,9 +8,10 @@ import io.grpc.ManagedChannelBuilder;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.logging.Logger;
 
 public class SendFileClient {
-
+    private final static Logger logger = Logger.getLogger(SendFileClient.class.getName());
     public static void main(String[] args) throws Exception {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051)
                 .usePlaintext()
@@ -26,7 +27,7 @@ public class SendFileClient {
                 .build();
 
         JsonFileResponse jsonResponse = jsonStub.sendJsonFile(jsonRequest);
-        System.out.println("JSON Service response: " + jsonResponse.getStatus());
+        logger.info("JSON Service response: " + jsonResponse.getStatus());
 
         channel.shutdown();
     }
