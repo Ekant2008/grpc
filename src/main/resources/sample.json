@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Alice Johnson",
+    "address": "123 Maple Street, Springfield",
+    "email": "alice.johnson@example.com"
+  },
+  {
+    "name": "Bob Smith",
+    "address": "456 Oak Avenue, Lincoln",
+    "email": "bob.smith@example.com"
+  },
+  {
+    "name": "Charlie Brown",
+    "address": "789 Pine Road, Madison",
+    "email": "charlie.brown@example.com"
+  }
+]

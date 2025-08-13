@@ -1,0 +1,31 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Environment-dependent path to Maven home directory
+/mavenHomeManager.xml
+# Maven build output
+/target/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+
+
+# VS Code project files (if used)
+.vscode/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store      # macOS Finder metadata
+Thumbs.db      # Windows Explorer metadata
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+
+
